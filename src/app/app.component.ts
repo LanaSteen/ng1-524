@@ -1,26 +1,36 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, HeaderComponent, FooterComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
 
-  ngOnInit(){
+   ngOnInit(){
     this.count()
+    this.age = 55
     this.title = "ng2"
   }
 
+  printHEllo(){
+    console.log("hello");
+  }
 
   title = 'ng1';
 
   userName = "Jane";
+  isDisabled = true
 
   isValid = false;
   age = 50
+  showAgeUi = 0
 
   user = {
     name : "rame",
@@ -36,8 +46,11 @@ export class AppComponent {
     }
   }
 
+  showAge(){
+     this.showAgeUi = this.age
+  }
 
-  
+ 
   
 }
 

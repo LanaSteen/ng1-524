@@ -1,0 +1,29 @@
+<p>home works!</p>
+
+
+
+<h1 >გამარჯობა {{ userName }} კეთილი იყოს შენი მობრძანება</h1>
+
+<!-- one way binding   - ერთი მიმართულებით ჩამაგრება /   სტრინგის ინტერპოლაცია -->
+
+
+
+<!-- ფროფერთი ბაინდინგი   []-->
+<input type="text" [required]="">
+<button [disabled]="isDisabled" >register</button>
+
+
+<!-- event binding  () -->
+
+<button (click)="printHEllo()">Print</button>
+
+<p routerLink="/contact">კონტაქტზე გადასვლა</p>
+
+<!-- two way binding     [(ngModel)]          FormsModule-->
+
+<input type="text"  placeholder="enter age" [(ngModel)]="age">
+<p>{{age}}</p>
+
+
+<button (click)="showAge()">Show Age</button>
+<h1>ასაკი : {{showAgeUi}}</h1>
