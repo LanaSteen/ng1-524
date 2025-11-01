@@ -12,17 +12,33 @@ export const routes: Routes = [
   },
   {
     path : "home",
-    component : HomeComponent
+    loadComponent : () => import("./home/home.component").then(com => com.HomeComponent)
   },
-  {
+    {
+    path : "about/:id",
+    loadComponent : () => import("./about/about.component").then(com => com.AboutComponent)
+  },
+    {
     path : "about",
-    component : AboutComponent
+    loadComponent : () => import("./about/about.component").then(com => com.AboutComponent)
   },
-  {
+    {
     path : "contact",
-    component : ContactComponent
-
+    loadComponent : () => import("./contact/contact.component").then(com => com.ContactComponent)
   },
+  // {
+  //   path : "home",
+  //   component : HomeComponent
+  // },
+  // {
+  //   path : "about",
+  //   component : AboutComponent
+  // },
+  // {
+  //   path : "contact",
+  //   component : ContactComponent
+
+  // },
   {
     path : "**",  //ვაილდ ქარდი
     component : ErrorComponent

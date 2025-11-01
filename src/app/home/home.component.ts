@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Product } from '../models/product';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,10 @@ export class HomeComponent {
 
  ngOnInit(){
     this.count()
-    this.age = 55
+    this.age = 0
     this.title = "ng2"
+    console.log(this.product);
+    
   }
 
   printHEllo(){
@@ -25,7 +29,8 @@ export class HomeComponent {
   isDisabled = true
 
   isValid = false;
-  age = 50
+  age = 55
+  // age : any /// ცუდია
   showAgeUi = 0
 
   user = {
@@ -44,8 +49,23 @@ export class HomeComponent {
 
   showAge(){
      this.showAgeUi = this.age
+     console.log(`rame ${this.age}`);
+     
   }
 
 
+  user1 = new User
+
+  product = new Product
+
 
 }
+
+
+
+///  string number boolean object null undefiend  enum interface
+
+
+///   class
+
+
