@@ -26,6 +26,10 @@ export const routes: Routes = [
     path : "contact",
     loadComponent : () => import("./contact/contact.component").then(com => com.ContactComponent)
   },
+  {
+    path : "menu",
+    loadComponent : () => import("./menu/menu.component").then(com => com.MenuComponent)
+  },
   // {
   //   path : "home",
   //   component : HomeComponent

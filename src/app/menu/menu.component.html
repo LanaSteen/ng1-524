@@ -1,0 +1,74 @@
+<p>menu works!</p>
+
+<article>
+  <input type="number" placeholder="id" [(ngModel)]="productObj.id" />
+  <input type="text" placeholder="name" [(ngModel)]="productObj.name" />
+  <input type="number" placeholder="price" [(ngModel)]="productObj.price" />
+  <input type="text" placeholder="image" [(ngModel)]="productObj.image" />
+  <select id="" [(ngModel)]="productObj.nuts">
+    <option value="true">Nuts</option>
+    <option value="false">No Nuts</option>
+  </select>
+  <select id="" [(ngModel)]="productObj.vegeterian">
+    <option value="true">Vegetarian</option>
+    <option value="false">Not Vegetarian</option>
+  </select>
+  <select id="" [(ngModel)]="productObj.spiciness">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+  <input
+    type="number"
+    placeholder="Category Id"
+    [(ngModel)]="productObj.categoryId"
+  />
+
+  <button (click)="save()" class="btn btn-danger">Save Product</button>
+</article>
+
+<button (click)="show()">Show menu</button>
+
+<!-- <div class="container" *ngIf="isVisibal">
+  <div class="card" style="width: 18rem" *ngFor="let el of productArr; let i = index">
+
+      <p>{{i+1}}</p>
+      <img [src]="el.image" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ el.name }}</h5>
+        <p class="card-text">{{ el.price }} ლარი</p>
+        <p>{{el.nuts == "true"? 'შეიცავს თხილს' : "არ შეიცავს თხილს" }}</p>
+        <button [disabled]="el.nuts!='true'">Go somewhere</button>
+        <button (click)="dlete(i)">Delete</button>
+
+    </div>
+  </div>
+</div> -->
+
+
+@if (isVisibal) {
+    <div class="container" >
+      @for (el of productArr; track $index) {
+
+        <div class="card" style="width: 18rem">
+          <!-- <div class="parent" *ngIf="el.nuts=='true'"> -->
+            <p>{{$index+1}}</p>
+            <img [src]="el.image" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{ el.name }}</h5>
+              <p class="card-text">{{ el.price }} ლარი</p>
+              <p>{{el.nuts == "true"? 'შეიცავს თხილს' : "არ შეიცავს თხილს" }}</p>
+              <button [disabled]="el.nuts!='true'">Go somewhere</button>
+              <button (click)="dlete($index)">Delete</button>
+            <!-- </div> -->
+          </div>
+       </div>
+       }
+  </div>
+
+}
+
+
+
+<!-- სტრუქტურული დეკორატორები/დირექტივები -->

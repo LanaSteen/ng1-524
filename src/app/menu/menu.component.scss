@@ -1,0 +1,14 @@
+
+
+article{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 400px;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
