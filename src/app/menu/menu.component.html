@@ -1,6 +1,6 @@
 <p>menu works!</p>
 
-<article>
+<article *ngIf="showInputs">
   <input type="number" placeholder="id" [(ngModel)]="productObj.id" />
   <input type="text" placeholder="name" [(ngModel)]="productObj.name" />
   <input type="number" placeholder="price" [(ngModel)]="productObj.price" />
@@ -68,6 +68,33 @@
   </div>
 
 }
+
+
+<div class="box">
+  @for (el of product2Arr; track $index) {
+    <div class="card" style="width: 18rem;">
+       <img [src]="el.image" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">{{el.name}}</h5>
+         <!-- <p>{{$index}}</p> -->
+         <p class="card-text">{{el.price}}</p>
+            <p class="card-text">{{el.vegeterian == true ? "veg" : "not veg"}}</p>
+         <button  class="btn btn-danger" (click)="deleteProduct(el.id)">Delete</button>
+         <button (click)="edit(el.id)">edit</button>
+       </div>
+    </div>
+ }
+
+</div>
+
+
+
+
+
+
+
+
+
 
 
 

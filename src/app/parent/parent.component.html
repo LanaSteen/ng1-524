@@ -1,0 +1,10 @@
+<p>parent works!</p>
+
+
+<app-child [btntext]="testFromparent" (fromchild)="print($event)"></app-child>
+
+
+
+<app-text [fromparent]="numb" [rame]="name" >       </app-text>
+
+<button (click)="grow()">Up</button>

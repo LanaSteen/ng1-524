@@ -30,6 +30,10 @@ export const routes: Routes = [
     path : "menu",
     loadComponent : () => import("./menu/menu.component").then(com => com.MenuComponent)
   },
+  {
+    path : "parent",
+    loadComponent : () => import("./parent/parent.component").then(com => com.ParentComponent)
+  },
   // {
   //   path : "home",
   //   component : HomeComponent

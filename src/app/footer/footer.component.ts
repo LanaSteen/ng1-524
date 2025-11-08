@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ChildComponent } from "../parent/child/child.component";
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [ChildComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
