@@ -2,22 +2,30 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product';
 import { User } from '../models/user';
+import { ButtonComponent } from "../button/button.component";
+import { Category } from '../models/category';
+import { CommonModule } from '@angular/common';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule],
+  imports: [FormsModule, ButtonComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  constructor(private com : CommonService){}
 
  ngOnInit(){
     this.count()
     this.age = 0
     this.title = "ng2"
     console.log(this.product);
+    this.homeVar = this.com.servVar
     
   }
+
+  homeVar = ""
 
   printHEllo(){
     console.log("hello");
@@ -57,6 +65,46 @@ export class HomeComponent {
   user1 = new User
 
   product = new Product
+  
+  getInfoFromChild(nameFromChild : string){
+    this.cartegryArr = this.cartegryArr.filter(el => el.name != nameFromChild)
+  }
+
+  cartegryArr : Category[] =
+  [
+  {
+    id: 1,
+    name: "dsddc"
+  },
+  {
+    id: 2,
+    name: "Soups"
+  },
+  {
+    id: 3,
+    name: "Chicken-Dishes"
+  },
+  {
+    id: 4,
+    name: "Beef-Dishes"
+  },
+  {
+    id: 5,
+    name: "Seafood-Dishes"
+  },
+  {
+    id: 6,
+    name: "Vegetable-Dishes"
+  },
+  {
+    id: 7,
+    name: "Bits&Bites"
+  },
+  {
+    id: 8,
+    name: "On-The-Side"
+  }
+]
 
 
 }

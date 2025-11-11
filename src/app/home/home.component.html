@@ -1,5 +1,15 @@
 <p>home works!</p>
 
+<h1>hi  {{homeVar}}</h1>
+
+
+<div class="cont"  >
+  <app-button [btnText]="el.name"  
+  *ngFor="let el of cartegryArr"  
+  (btnInfo)="getInfoFromChild($event)"
+  
+  ></app-button>
+</div>
 
 
 <h1 >გამარჯობა {{ userName }} კეთილი იყოს შენი მობრძანება</h1>

@@ -34,6 +34,10 @@ export const routes: Routes = [
     path : "parent",
     loadComponent : () => import("./parent/parent.component").then(com => com.ParentComponent)
   },
+    {
+    path : "parent2",
+    loadComponent : () => import("./parent2/parent2.component").then(com => com.Parent2Component)
+  },
   // {
   //   path : "home",
   //   component : HomeComponent
