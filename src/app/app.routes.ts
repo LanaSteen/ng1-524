@@ -38,6 +38,10 @@ export const routes: Routes = [
     path : "parent2",
     loadComponent : () => import("./parent2/parent2.component").then(com => com.Parent2Component)
   },
+   {
+    path : "testSignal",
+    loadComponent : () => import("./test-signal/test-signal.component").then(com => com.TestSignalComponent)
+  },
   // {
   //   path : "home",
   //   component : HomeComponent

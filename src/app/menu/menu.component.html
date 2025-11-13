@@ -79,6 +79,7 @@
          <!-- <p>{{$index}}</p> -->
          <p class="card-text">{{el.price}}</p>
             <p class="card-text">{{el.vegeterian == true ? "veg" : "not veg"}}</p>
+            <button (click)="addTocart(el.id)">Add to cart</button>
          <button  class="btn btn-danger" (click)="deleteProduct(el.id)">Delete</button>
          <button (click)="edit(el.id)">edit</button>
        </div>

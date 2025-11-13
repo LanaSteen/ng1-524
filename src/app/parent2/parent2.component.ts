@@ -3,6 +3,7 @@ import { ButtonComponent } from "../button/button.component";
 import { CommonService } from '../services/common.service';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { Product2 } from '../models/product2';
 
 
 @Component({
@@ -21,9 +22,13 @@ export class Parent2Component {
 
   ngOnInit(){
     this.commonFun.test()
+
     this.api.getAll("https://restaurant.stepprojects.ge/api/Products/GetAll")
          .subscribe(data => console.log(data))
   }
+
+ productArr : Product2[] = []
+
   userName = ""
 
 

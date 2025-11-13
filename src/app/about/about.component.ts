@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product2 } from '../models/product2';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +11,7 @@ import { Product2 } from '../models/product2';
 })
 export class AboutComponent {
 
-  constructor(private routparam : ActivatedRoute){
+  constructor(private routparam : ActivatedRoute, private common : CommonService){
       this.routparam.params.subscribe(data => {
         console.log(data["id"])
         this.id = data["id"]
@@ -18,6 +19,7 @@ export class AboutComponent {
   }
 
   ngOnInit(){
+    this.userName = this.common.userName
      if(this.id !=0){
         console.log(this.id);
      
@@ -25,6 +27,7 @@ export class AboutComponent {
      }
   }
   id = 0
+  userName = ""
 
 
   //age : any   // number string boolean null undefiend object
