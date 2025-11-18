@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ErrorComponent } from './error/error.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -28,7 +29,8 @@ export const routes: Routes = [
   },
   {
     path : "menu",
-    loadComponent : () => import("./menu/menu.component").then(com => com.MenuComponent)
+    loadComponent : () => import("./menu/menu.component").then(com => com.MenuComponent),
+    canActivate : [authGuard]
   },
   {
     path : "parent",
@@ -41,6 +43,10 @@ export const routes: Routes = [
    {
     path : "testSignal",
     loadComponent : () => import("./test-signal/test-signal.component").then(com => com.TestSignalComponent)
+  },
+     {
+    path : "login",
+    loadComponent : () => import("./login/login.component").then(com => com.LoginComponent)
   },
   // {
   //   path : "home",

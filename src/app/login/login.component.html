@@ -1,0 +1,18 @@
+<p>login works!</p>
+
+
+<form #logInForm="ngForm" (ngSubmit)="logIn(logInForm)">
+   <input type="text" 
+     placeholder="phone number" 
+     name="phoneNumber" 
+     ngModel 
+     required
+     pattern="^[a-z0-9+]*$">
+   <input type="password" 
+      placeholder="password" 
+      name="password" 
+      ngModel 
+      required>
+   <button type="submit" [disabled]="!logInForm.valid">Log In</button>
+</form>
+

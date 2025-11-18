@@ -9,6 +9,10 @@
     <li>
       <a routerLink="/testSignal" [routerLinkActive]="rame">TestSignal</a>
     </li>
+     <li *ngIf="!isAuth()">
+      <a routerLink="/login" [routerLinkActive]="rame">Log In</a>
+    </li>
+    <button (click)="logOut()" *ngIf="isAuth()">Log Out</button>
     <li>user name : {{userName}}</li>
   </ul>
 </nav>
