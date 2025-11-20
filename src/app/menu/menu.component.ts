@@ -3,10 +3,11 @@ import { Product2 } from '../models/product2';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../services/api.service';
+import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-menu',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, ErrorDialogComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
@@ -33,13 +34,15 @@ export class MenuComponent {
 
 
     ngOnInit(){
+    // debugger
     this.api
     .getAll("https://restaurant.stepprojects.ge/api/Products/GetAll")
     .subscribe({
+      
         next :  (resp : any) => this.product2Arr = resp,
         error : (err:any) => {
          alert("something went wrong")
-         console.log("error", err)
+         console.log("error", err.status)
        }
       })
   }

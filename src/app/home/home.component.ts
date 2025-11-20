@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../models/product';
 import { User } from '../models/user';
 import { ButtonComponent } from "../button/button.component";
 import { Category } from '../models/category';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, LowerCasePipe, UpperCasePipe, ViewportScroller } from '@angular/common';
 import { CommonService } from '../services/common.service';
 
 @Component({
@@ -13,8 +13,8 @@ import { CommonService } from '../services/common.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  constructor(private com : CommonService){}
+export class HomeComponent implements OnInit{
+  constructor(private com : CommonService, private scr : ViewportScroller){}
 
  ngOnInit(){
     this.count()
@@ -25,6 +25,24 @@ export class HomeComponent {
     
   }
 
+  country = "GEORGIA"
+  amount = 100
+
+  today = new Date()
+
+  scrolltoContact(){
+    this.scr.scrollToAnchor("contact")
+  }
+
+
+
+  lowerCaseMyFn(name : string){
+      debugger
+     return name.toLowerCase()
+  }
+ trimCaseMyFn(rame : string){
+   return rame.trim()
+ }
   homeVar = ""
 
   printHEllo(){
@@ -49,6 +67,7 @@ export class HomeComponent {
 
   count(){
     for(let i of this.arr){
+    //  debugger
 
       console.log(i);
       
