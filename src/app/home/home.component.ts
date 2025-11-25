@@ -24,6 +24,11 @@ export class HomeComponent implements OnInit{
     this.homeVar = this.com.servVar
     
   }
+  
+  id! : number | string | boolean
+  
+
+
 
   country = "GEORGIA"
   amount = 100

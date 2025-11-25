@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product2 } from '../models/product2';
 import { CommonService } from '../services/common.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-about',
@@ -11,7 +12,10 @@ import { CommonService } from '../services/common.service';
 })
 export class AboutComponent {
 
-  constructor(private routparam : ActivatedRoute, private common : CommonService){
+  constructor(private routparam : ActivatedRoute, 
+    private common : CommonService,
+    private api : ApiService){
+
       this.routparam.params.subscribe(data => {
         console.log(data["id"])
         this.id = data["id"]
@@ -19,6 +23,19 @@ export class AboutComponent {
   }
 
   ngOnInit(){
+    this.api.getAll("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+    .subscribe((resp:any) =>{
+        console.log(resp);
+        this.api.getAll("https://dog.ceo/api/breeds/image/random")
+        .subscribe((data:any) => {
+          console.log(data)
+          this.img= data.message
+        })
+        
+    })
+
+
+    
     this.userName = this.common.userName
      if(this.id !=0){
         console.log(this.id);
@@ -26,6 +43,9 @@ export class AboutComponent {
         
      }
   }
+
+  img : any;
+
   id = 0
   userName = ""
 
