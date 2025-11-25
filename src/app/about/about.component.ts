@@ -21,7 +21,7 @@ export class AboutComponent {
         this.id = data["id"]
       })
   }
-
+  img2 =""
   ngOnInit(){
     this.api.getAll("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
     .subscribe((resp:any) =>{
